@@ -38,5 +38,6 @@ public class Testday03 {
             System.out.println("employee1 = " + employee1);
         }
         System.out.println("更新1");
+        System.out.println("更新666");
     }
 }
