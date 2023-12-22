@@ -39,5 +39,6 @@ public class Testday03 {
         }
         System.out.println("更新1");
         System.out.println("更新666");
+        System.out.println("更新2222");
     }
 }
