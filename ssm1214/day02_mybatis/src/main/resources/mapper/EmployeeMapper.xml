@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.mybatis.mapper.EmployeeMapper">
+    <select id="selectEmpById" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+        WHERE
+            id=#{empId}
+    </select>
+<!--    定义添加员工SQL-->
+    <insert id="insertEmployee" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+            tbl_employee(last_name,email,salary)
+        VALUES(#{lastName},#{email},#{salary})
+    </insert>
+<!--    定义删除员工信息-->
+    <delete id="deleteEmployeeById">
+        delete from
+            tbl_employee
+        where
+            id=#{empId}
+    </delete>
+<!--    定义修改员工-->
+    <update id="updateEmployee">
+        UPDATE tbl_employee
+        SET
+            last_name=#{lastName},
+            email=#{email},
+            salary=#{salary}
+        WHERE
+            id=#{id}
+    </update>
+<!--    定义查询所有员工信息SQL-->
+    <select id="selectAllEmps" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+    </select>
+
+<!--    day03-->
+    <select id="selectEmpByOpr" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+        WHERE
+            last_name=#{arg0}
+        AND
+            salary=#{arg1}
+    </select>
+
+    <select id="selectEmpByPojo" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+        WHERE
+            last_name=#{lastName}
+          AND
+            salary=#{salary}
+    </select>
+    
+    <select id="selectEmpByNamed" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+        WHERE
+            last_name=#{param1}
+          AND
+            salary=#{param2}
+    </select>
+</mapper>

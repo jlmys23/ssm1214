@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <!--    加载外部属性文件-->
+    <properties resource="db.properties"></properties>
+
+    <!--    开启驼峰式自动映射-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!--        为指定类型定义别名-->
+        <!--        <typeAlias type="com.atguigu.mybatis.pojo.Employee" alias="employee"></typeAlias>-->
+        <!--        为指定包下所有的类定义别名        默认将类名作为别名，不区分大小写【推荐使用小写字母】-->
+        <package name="com.atguigu.mybatis.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--    设置映射文件路径-->
+    <mappers>
+        <mapper resource="mapper/EmployeeMapper.xml"/>
+    </mappers>
+
+</configuration>
