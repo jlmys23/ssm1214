@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>day02_mybatis</module>
+        <module>day03_mybatis</module>
     </modules>
 
 

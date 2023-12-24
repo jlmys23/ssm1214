@@ -1,9 +1,11 @@
 package com.atguigu.mybatis.mapper;
 
 import com.atguigu.mybatis.pojo.Employee;
+import com.sun.org.apache.xpath.internal.objects.XObject;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeMapper {
 //    通过id获取员工信息
@@ -23,4 +25,6 @@ public interface EmployeeMapper {
     //    通过员工姓名及薪资查询员工信息【命名参数】
     public List<Employee> selectEmpByNamed(@Param("lName") String lastName,
                                            @Param("salary") double salary);
+//    通过员工姓名及薪资查询员工信息【Map参数】
+    public List<Employee> selectEmpByMap(Map<String, Object> map);
 }

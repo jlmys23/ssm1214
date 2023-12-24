@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Testday03 {
     @Test
@@ -33,13 +35,15 @@ public class Testday03 {
 //            System.out.println("employee1 = " + employee1);
 //        }
 //        测试命名参数
-        List<Employee> employees = mapper.selectEmpByNamed("zhangshan", 1645.0);
+//        List<Employee> employees = mapper.selectEmpByNamed("zhangshan", 1645.0);
+//        测试Map参数
+        Map<String,Object> map = new HashMap<>();
+        map.put("lastName","zhangshan");
+        map.put("salary",1645.0);
+        mapper.selectEmpByMap(map);
+        List<Employee> employees = mapper.selectEmpByMap(map);
         for (Employee employee1 : employees) {
             System.out.println("employee1 = " + employee1);
         }
-        System.out.println("更新1");
-        System.out.println("更新666");
-        System.out.println("更新2222");
-        System.out.println("更新555");
     }
 }

@@ -91,4 +91,18 @@
           AND
             salary=#{param2}
     </select>
+
+    <select id="selectEmpByMap" resultType="employee">
+        SELECT
+            id,
+            last_name,
+            email,
+            salary
+        FROM
+            tbl_employee
+        WHERE
+            last_name=#{lastName}
+          AND
+            salary=#{salary}
+    </select>
 </mapper>
