@@ -48,6 +48,7 @@ public class TestResultMap {
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
         Dept dept = mapper.selectDeptAndEmpByDeptId(1);
         System.out.println("dept = " + dept);
+        System.out.println("11111");
     }
 
 }
