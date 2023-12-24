@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--    加载外部属性文件-->
+    <properties resource="db.properties"></properties>
+
+    <settings>
+        <!--    开启驼峰式自动映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--    开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="ture"/>
+        <!--    设置加载的数据是按需加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.atguigu.mybatis.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+<!--                mysql5版本-->
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/EmployeeMapper.xml"></mapper>
+        <mapper resource="mapper/DeptMapper.xml"></mapper>
+    </mappers>
+</configuration>
